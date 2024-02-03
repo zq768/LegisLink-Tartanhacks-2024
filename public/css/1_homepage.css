@@ -1,0 +1,112 @@
+/*html { 
+    background: url(/img/path_background.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}*/
+
+/*
+DARK RED 772f1A
+LIGHT RED EF8354
+CREAM FDF0D5
+LIGHT BLUE 759AAB
+DARK BLUE 13293E
+*/
+
+body{
+    background: #759AAB;
+}
+h2{
+	color: black;
+}
+#welcome{
+    grid-row: 2/3;
+    grid-column: 11/22;
+	display: flex;
+	justify-content: center;
+	align-items: center
+}
+#welcome img{
+	height: 80px;
+	margin-right: 20px;
+}
+#welcome h1{
+    font-weight: bolder;
+    color: #FDF0D5;
+}
+#signup-box{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    grid-row: 4/16;
+    grid-column: 11/23;
+    background: #f5b193;
+    border: 4vh solid #772f1A;
+    border-radius: 8px;
+}
+#signup-box form{
+    display: grid;
+    grid-template-rows: repeat(12, 1fr);
+    height: 35vh;
+}
+input{
+    font-size: 2.5vh;
+}
+input,
+input::-webkit-input-placeholder {
+    font-size: 2.5vh;
+}
+#username{
+    grid-row: 1/5;
+}
+#password{
+    grid-row: 5/9;
+}
+#submit{
+    grid-row: 9/13;
+}
+#login_email{
+    grid-row: 1/5;
+}
+#login_password{
+    grid-row: 5/9;
+}
+#login_submit{
+    grid-row: 9/13;
+}
+#message{
+    grid-row: 16/17;
+    grid-column: 12/22;
+    color: #FDF0D5;
+}
+#message-inner:hover{
+    text-decoration: underline;
+    color: blue;
+}
+form{
+    margin-left: 10%;
+}
+form p{
+    font-weight: bold;
+    font-size: 30vw;
+}
+form input{
+    padding-left: 10px;
+    /*background: #7B337D;
+    border: 3px solid #C874B2;*/
+}
+form input::placeholder{
+    color: #f5b193;
+}
+form button{
+    background: #FDF0D5;
+    margin-top: 100px;
+}
+.oval{
+    width: 85%;
+    line-height: 30px;
+    font-size: 2.5vh;
+    margin: 10px 10px;
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: 20px;
+}

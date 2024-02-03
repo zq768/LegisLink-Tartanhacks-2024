@@ -1,0 +1,116 @@
+body{
+	height: 100vh;
+    background: #13293E;
+	overflow-y: hidden;
+}
+#inner{
+	background: #759AAB;
+	padding: 20px;
+}
+#comments{
+	width: 25vw;
+	align-items: center;
+}
+#post-info{
+	width: 40vw;
+	margin-left: 20px;
+	align-items: center;
+	margin-right: 20px;
+}
+#content{
+	padding: 25px;
+}
+#policymakers{
+	width: 22vw;
+	align-items: left;
+}
+#policymakers p{
+	margin: 0;
+}
+.section{
+	display: flex;
+	height: 82vh;
+	flex-direction: column;
+	padding: 15px;
+	padding-top: 10px;
+	background-color: #FdF0D5;
+}
+.dude-main{
+	display: flex;
+	justify-content: left-side;
+	margin-bottom: 15px;
+	background-color: #f5b193;
+	padding: 4px;
+	border-radius: 4px;
+}
+.dude-main img{
+	height: 80px;
+	width: 80px;
+	margin-right: 10px;
+}
+.dude{
+	display: flex;
+	flex-direction: column;
+}
+.name{
+	font-size: 19px;
+	font-weight: bold;
+}
+.position{
+	font-size: 13px;
+}
+.email{
+	font-size: 15px;
+}
+.comment{
+	margin: 4px;
+	background-color: #f5b193;
+	padding: 4px;
+	border-radius: 4px;
+	margin-bottom: 8px;
+	width: 95%;
+}
+.comment-poster{
+	font-size: 14px;
+	font-weight: bold;
+}
+.comment-content{
+	font-size: 15px;
+}
+.comment p{
+	margin: 2px;
+}
+.add-button{
+	width: 40px;
+	height: 40px;
+	font-size: 2rem;
+	background-color: #ffe2d6;
+	border: 6px solid #f5b193;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 95%;
+	margin-top: 8px;
+}
+h3{
+	margin: 10px;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+#hidden{
+	display: none;
+}
+.tags{
+	display: flex;
+	align-items: center;
+	position: absolute;
+	top: 80%;
+	left: 35%;
+}
+.tag-indiv{
+	background-color: #f5b193;
+	padding: 4px;
+	border-radius: 3px;
+	margin-right: 7px;
+}
