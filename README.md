@@ -1,6 +1,6 @@
 # LegisLink: Make your voices heard.
 
-**"I want to see a change, but...what can I even accomplish on my own?**
+**"I want to see a change, but... what can I even accomplish on my own?**
 
 Sound familiar? We all have changes we wish to see, but for various reasons, we abandon our hopes. It's not because you lack passion: you just haven't met enough people who share your ideas. 
 
@@ -15,4 +15,4 @@ Through LegisLink, ordinary citizens can see posts, add reactions and supportive
 
 To facilitate the spread of ideas, LegisLink uses a content-based recommendation system to organize the users' feed based on their user history and self-identified areas of interests. The system gives tags to all posts and creates a similarity matrix with the users' preferences stored. Thus, this matrix can be updated every time the user clicks on a post and interacts. 
 
-Attached is the Node.js code for a prototype of what the LegisLink website will be like. Additionally, there is a map system 
+Attached is the Node.js code for a prototype of what the LegisLink website will be like. Additionally, there is a map system where users can visualize fellow activists in their vicinity: existing locations will appear as dots; once users input their location, a location marker will show up on the map, and this location will be stored in the database and appear when other users open the map.
