@@ -1,4 +1,4 @@
-# LegisLink: Make your voice heard.
+# LegisLink: Make your voices heard.
 
 **"I want to see a change, but...what can I even accomplish on my own?**
 
@@ -11,4 +11,4 @@ LegisLink is a website connecting ordinary citizens with the right people.
 - Matching ideas with writers to draft the proposals out
 - Linking them in the final step with policymakers, who can make these proposals come true
 
-Through LegisLink, ordinary citizens can see posts, add reactions and supportive comments, and even reach out and join the drafting Groups. 
+Through LegisLink, ordinary citizens can see posts, add reactions and supportive comments, and even reach out and join the drafting Groups. Groups work together to write up the ideas in a more formal manner. And in the final stages, 
