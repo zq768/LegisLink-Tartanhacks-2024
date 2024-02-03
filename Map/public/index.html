@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Global Impact</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 70vh;
+      width: 60vw;
+      margin: 0 auto;
+      border: 2px solid #333;
+      border-radius: 10px;
+    }
+
+    /* Heading */
+    h1 {
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      font-size: 35px;
+      color: #333;
+    }
+
+    .input-container {
+      text-align: center;
+    }
+
+    /* Label and input elements */
+    label, input {
+      display: inline-block;
+      margin: 10px;
+      font-family: 'Arial', sans-serif;
+      font-size: 16px;
+      color: #333;
+    }
+
+    label[for="lat"], label[for="lon"] {
+      font-size: 18px;
+    }
+
+    /* Button */
+    button {
+      display: inline-block;
+      margin: 10px 30px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Our Global Impact</h1>
+  <div class="input-container">
+    <label for="lat">Latitude:</label>
+    <input type="text" id="lat" placeholder="Enter latitude">
+    <label for="lon">Longitude:</label>
+    <input type="text" id="lon" placeholder="Enter longitude">
+    <button onclick="addUserMarker()">Add your mark!</button>
+  </div>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+  <script>
+    var mymap = L.map('map').setView([43, -90], 2.4); // Initial center and zoom level
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(mymap);
+
+    function addMarker(lat, lon) {
+    L.marker([lat, lon], {
+        icon: L.divIcon({
+        className: 'custom-div-icon',
+        html: `<div style="background-color: black; border-radius: 50%; width: 10px; height: 10px;"></div>`,
+        iconSize: [10, 10],
+        iconAnchor: [5, 5]
+        })
+    })
+    .addTo(mymap)
+    .bindPopup(`Latitude: ${lat}<br>Longitude: ${lon}`);
+    }
+
+    function addUserMarker() {
+      var lat = parseFloat(document.getElementById('lat').value);
+      var lon = parseFloat(document.getElementById('lon').value);
+
+      if (!isNaN(lat) && !isNaN(lon)) {
+        L.marker([lat, lon]).addTo(mymap)
+          .bindPopup(`Latitude: ${lat}<br>Longitude: ${lon}`)
+          .openPopup();
+        appendToCSV(lat, lon);
+      } else {
+        alert('Please enter valid coordinates.');
+      }
+    }
+
+    function appendToCSV(lat, lon) {
+      var csvString = `${lat},${lon}\n`;
+
+      // Send POST request to the server to append data to the CSV file
+      fetch('/add-coordinate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ data: csvString }),
+      })
+      .then(response => response.json())
+      .then(data => console.log('Coordinates added to CSV:', data))
+      .catch(error => console.error('Error adding coordinates to CSV:', error));
+    }
+
+    function loadMarkersFromCSV() {
+    Papa.parse("./data.csv", {
+        header: false,
+        download: true,
+        complete: function(results) {
+        results.data.forEach(function(row) {
+            var lat = parseFloat(row[0]);
+            var lon = parseFloat(row[1]);
+
+            if (!isNaN(lat) && !isNaN(lon)) {
+            addMarker(lat, lon);
+            }
+        });
+        }
+    });
+    }
+
+    loadMarkersFromCSV();
+  </script>
+</body>
+</html>
